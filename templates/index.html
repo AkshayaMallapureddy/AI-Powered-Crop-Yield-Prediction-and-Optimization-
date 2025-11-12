@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ text['title'] }}</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+  <h1>{{ text['header'] }}</h1>
+  <form action="/predict" method="POST">
+    <input type="hidden" name="lang" value="{{ lang }}">
+    <label>{{ text.inputs.crop }}:</label>
+    <select name="crop_select">
+      {% for c in crop_types %}
+        <option value="{{ c }}">{{ c }}</option>
+      {% endfor %}
+      <option value="Other">Other (specify below)</option>
+    </select>
+    <br>
+    <small>If your crop isn't listed, specify here:</small><br>
+    <input type="text" name="crop" placeholder="e.g. Local variety (optional)"><br><br>
+
+    <label>{{ text.inputs.soil }}:</label>
+    <select name="soil_select">
+      {% for s in soil_types %}
+        <option value="{{ s }}">{{ s }}</option>
+      {% endfor %}
+      <option value="Other">Other (specify below)</option>
+    </select>
+    <br>
+    <small>If your soil type isn't listed, specify here:</small><br>
+    <input type="text" name="soil" placeholder="e.g. Rocky loam (optional)"><br><br>
+    <label>{{ text.inputs.location }}:</label>
+    <input type="text" name="location" required><br><br>
+    <label>{{ text.inputs.acres }}:</label>
+    <input type="number" name="acres" step="0.1" required><br><br>
+    <button type="submit">{{ text.submit_button }}</button>
+  </form>
+</body>
+</html>

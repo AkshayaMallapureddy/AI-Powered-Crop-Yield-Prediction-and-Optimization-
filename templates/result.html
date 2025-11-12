@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ text['result_label'] }}</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+  <h2>{{ text['result_label'] }}</h2>
+  <p><b>{{ text['yield_label'] }}:</b> {{ yield_estimate }} tons/ha</p>
+  <p><b>{{ text['risk_label'] }}:</b> {{ risk }}</p>
+  <p><b>Recommended Crop:</b> {{ crop }}</p>
+  <form method="get" action="/">
+    <input type="hidden" name="lang" value="{{ lang }}">
+    <button type="submit">{{ text['back_button'] }}</button>
+  </form>
+</body>
+</html>
